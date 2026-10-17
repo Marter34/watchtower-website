@@ -1,0 +1,393 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d16">
+  <meta name="description" content="Watchtower documentation: learn how to invite, configure, and use the Discord moderation bot.">
+  <title>Documentation | Watchtower</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <span class="brand-icon">W</span>
+        <span>WATCHTOWER</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        ☰
+      </button>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="status.html">Status</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="docs.html" aria-current="page">Docs</a>
+        <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1560069427880534126&permissions=1099780089014&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noopener noreferrer">Invite Bot</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-header">
+      <div class="container">
+        <span class="badge">HELP CENTER</span>
+        <h1>Watchtower <span class="text-cyan">Documentation</span></h1>
+        <p>
+          Find setup instructions, command guidance, troubleshooting tips,
+          and information about keeping your Discord server protected.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container content-layout">
+        <aside class="content-sidebar">
+          <h3>On this page</h3>
+          <ul class="footer-links">
+            <li><a href="#getting-started">Getting started</a></li>
+            <li><a href="#permissions">Bot permissions</a></li>
+            <li><a href="#commands">Moderation commands</a></li>
+            <li><a href="#security">Security guidance</a></li>
+            <li><a href="#troubleshooting">Troubleshooting</a></li>
+            <li><a href="#support">Get support</a></li>
+          </ul>
+        </aside>
+
+        <div class="content-body">
+          <section id="getting-started" class="docs-section">
+            <span class="badge">01 / SETUP</span>
+            <h2>Getting started</h2>
+            <p>
+              Follow these steps to add Watchtower to a Discord server.
+              Some features may depend on the commands and configuration
+              currently available in the deployed bot.
+            </p>
+
+            <div class="card-grid">
+              <article class="card">
+                <div class="card-icon">01</div>
+                <h3>Invite Watchtower</h3>
+                <p>
+                  Use the official invite link and select the server where
+                  you have permission to add bots.
+                </p>
+                <a class="btn btn-secondary" href="https://discord.com/oauth2/authorize?client_id=1560069427880534126&permissions=1099780089014&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noopener noreferrer">
+                  Invite Watchtower
+                </a>
+              </article>
+
+              <article class="card">
+                <div class="card-icon">02</div>
+                <h3>Review permissions</h3>
+                <p>
+                  Review the requested permissions carefully. Only grant
+                  the permissions needed for the moderation features you
+                  intend to use.
+                </p>
+              </article>
+
+              <article class="card">
+                <div class="card-icon">03</div>
+                <h3>Test the bot</h3>
+                <p>
+                  Open your server and check whether Watchtower appears
+                  online. Try an available slash command in a private
+                  test channel before using moderation tools publicly.
+                </p>
+              </article>
+            </div>
+          </section>
+
+          <section id="permissions" class="docs-section">
+            <span class="badge">02 / PERMISSIONS</span>
+            <h2>Bot permissions</h2>
+            <p>
+              Discord permissions control what Watchtower can do. A bot
+              cannot moderate members or manage channels when it lacks
+              the required permissions.
+            </p>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Permission</th>
+                    <th>Purpose</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>View Channels</td>
+                    <td>Allows the bot to see channels it has access to.</td>
+                  </tr>
+                  <tr>
+                    <td>Send Messages</td>
+                    <td>Allows the bot to respond in permitted channels.</td>
+                  </tr>
+                  <tr>
+                    <td>Read Message History</td>
+                    <td>Allows access to previous messages where needed.</td>
+                  </tr>
+                  <tr>
+                    <td>Moderate Members</td>
+                    <td>Required for member timeouts.</td>
+                  </tr>
+                  <tr>
+                    <td>Kick Members</td>
+                    <td>Required to kick members.</td>
+                  </tr>
+                  <tr>
+                    <td>Ban Members</td>
+                    <td>Required to ban members.</td>
+                  </tr>
+                  <tr>
+                    <td>Manage Messages</td>
+                    <td>Required for deleting messages during moderation.</td>
+                  </tr>
+                  <tr>
+                    <td>Manage Channels</td>
+                    <td>Needed for channel-locking actions that change channel permissions.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <p class="form-help">
+              Important: Discord role hierarchy also matters. Watchtower
+              generally cannot moderate a member whose highest role is
+              equal to or higher than the bot's highest role.
+            </p>
+          </section>
+
+          <section id="commands" class="docs-section">
+            <span class="badge">03 / COMMANDS</span>
+            <h2>Moderation commands</h2>
+            <p>
+              Watchtower is designed to support moderation workflows.
+              The examples below describe common command patterns;
+              the exact command names, required options, and availability
+              depend on the commands registered by the current bot version.
+            </p>
+
+            <div class="card-grid">
+              <article class="card">
+                <div class="card-icon">/</div>
+                <h3>Warnings</h3>
+                <p>Review warnings associated with a member, if the warning command is available.</p>
+                <code>/warnings</code>
+              </article>
+
+              <article class="card">
+                <div class="card-icon">/</div>
+                <h3>Timeout</h3>
+                <p>Temporarily restrict a member's ability to participate.</p>
+                <code>/timeout</code>
+              </article>
+
+              <article class="card">
+                <div class="card-icon">/</div>
+                <h3>Kick</h3>
+                <p>Remove a member from the server without issuing a permanent ban.</p>
+                <code>/kick</code>
+              </article>
+
+              <article class="card">
+                <div class="card-icon">/</div>
+                <h3>Ban</h3>
+                <p>Ban a member from the server when authorized and appropriate.</p>
+                <code>/ban</code>
+              </article>
+
+              <article class="card">
+                <div class="card-icon">/</div>
+                <h3>Purge</h3>
+                <p>Remove a batch of messages where supported and permitted.</p>
+                <code>/purge</code>
+              </article>
+
+              <article class="card">
+                <div class="card-icon">/</div>
+                <h3>Lockdown</h3>
+                <p>Use an emergency lockdown command if it is enabled in your bot version.</p>
+                <code>/lockdown</code>
+              </article>
+            </div>
+
+            <div class="status-message">
+              <strong>Command tip:</strong> Type <code>/</code> in Discord
+              and select Watchtower from the command picker to see commands
+              registered and available in your server. Follow Discord's
+              displayed options rather than assuming an example is complete.
+            </div>
+          </section>
+
+          <section id="security" class="docs-section">
+            <span class="badge">04 / SECURITY</span>
+            <h2>Protect your server</h2>
+
+            <div class="card-grid">
+              <article class="card">
+                <div class="card-icon">01</div>
+                <h3>Use least privilege</h3>
+                <p>
+                  Give staff only the permissions needed for their
+                  responsibilities. Review bot permissions periodically.
+                </p>
+              </article>
+
+              <article class="card">
+                <div class="card-icon">02</div>
+                <h3>Protect staff accounts</h3>
+                <p>
+                  Encourage two-factor authentication and never share
+                  account passwords, bot tokens, or secret keys.
+                </p>
+              </article>
+
+              <article class="card">
+                <div class="card-icon">03</div>
+                <h3>Prepare for emergencies</h3>
+                <p>
+                  Decide who can respond to raids, where incidents should
+                  be reported, and how your team will verify recovery
+                  actions before changing permissions.
+                </p>
+              </article>
+            </div>
+
+            <p>
+              Automated security features are not a substitute for active
+              moderation. Review important actions, test configuration
+              changes safely, and keep a separate plan for incidents.
+            </p>
+          </section>
+
+          <section id="troubleshooting" class="docs-section">
+            <span class="badge">05 / TROUBLESHOOTING</span>
+            <h2>Common problems</h2>
+
+            <details class="card">
+              <summary><strong>Watchtower is offline</strong></summary>
+              <p>
+                Check the
+                <a href="status.html">status page</a>
+                for backend health information. An online website backend
+                does not necessarily mean the Discord bot is connected.
+                If the issue continues, contact support.
+              </p>
+            </details>
+
+            <details class="card">
+              <summary><strong>A command does not appear</strong></summary>
+              <p>
+                Confirm that Watchtower is in the server, that its
+                application commands are available, and that you have
+                permission to use the command. Some changes may take time
+                to appear in Discord.
+              </p>
+            </details>
+
+            <details class="card">
+              <summary><strong>A moderation action fails</strong></summary>
+              <p>
+                Check the bot's permissions, the target member's role
+                hierarchy, and your own access to the command. Discord
+                may reject actions that exceed the bot's authority.
+              </p>
+            </details>
+
+            <details class="card">
+              <summary><strong>The website dashboard does not save settings</strong></summary>
+              <p>
+                Dashboard controls may not be connected to a working
+                configuration backend yet. Do not assume a setting was
+                saved unless the dashboard explicitly confirms success.
+              </p>
+            </details>
+          </section>
+
+          <section id="support" class="docs-section">
+            <span class="badge">06 / SUPPORT</span>
+            <h2>Need more help?</h2>
+            <p>
+              If you run into a problem, gather the command name, a brief
+              description of what happened, and any relevant error
+              message. Never include passwords, bot tokens, or other
+              secret credentials in a support request.
+            </p>
+
+            <div class="cta-panel">
+              <h3>Get help with Watchtower</h3>
+              <p>
+                Visit the support server to ask questions, report a bug,
+                or get help with setup.
+              </p>
+              <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1560069427880534126&permissions=1099780089014&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noopener noreferrer">
+                Invite Watchtower
+              </a>
+            </div>
+          </section>
+
+          <section class="docs-section">
+            <h2>Related pages</h2>
+            <div class="feature-list">
+              <a href="features.html">Explore Watchtower features</a>
+              <a href="status.html">Check backend status</a>
+              <a href="dashboard.html">Open the dashboard</a>
+              <a href="terms.html">Terms of Service</a>
+              <a href="privacy.html">Privacy Policy</a>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <a class="brand" href="index.html">
+            <span class="brand-icon">W</span>
+            <span>WATCHTOWER</span>
+          </a>
+          <p class="text-muted">
+            A Discord moderation bot built to help communities manage
+            their servers.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Explore</h3>
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="status.html">Status</a>
+            <a href="dashboard.html">Dashboard</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <div class="footer-links">
+            <a href="docs.html">Documentation</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© <span id="current-year"></span> Watchtower. All rights reserved.</p>
+        <p>Built for safer Discord communities.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
