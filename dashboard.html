@@ -1,0 +1,515 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d16">
+  <meta
+    name="description"
+    content="Manage Watchtower moderation and security settings for your Discord servers."
+  >
+
+  <title>Server Dashboard | Watchtower</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header class="site-header">
+    <div class="container navbar">
+
+      <a class="brand" href="index.html">
+        <span class="brand-icon" aria-hidden="true">W</span>
+        <span>WATCHTOWER</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        Menu
+      </button>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a href="status.html">Status</a>
+        <a href="docs.html">Documentation</a>
+        <a class="active" href="dashboard.html">Dashboard</a>
+
+        <a
+          class="btn btn-primary"
+          href="https://discord.com/oauth2/authorize?client_id=1560069427880534126&permissions=1099780089014&integration_type=0&scope=bot+applications.commands"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Invite Bot
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- DASHBOARD HEADER -->
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+
+        <span class="eyebrow">Server Management</span>
+
+        <h1>Control <span class="text-cyan">Center</span></h1>
+
+        <p>
+          Manage moderation and security settings for the
+          Discord communities where you have authorized access.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- BACKEND NOTICE -->
+
+    <section style="padding-top: 10px;">
+      <div class="container">
+
+        <div
+          class="status-message"
+          role="status"
+          aria-live="polite"
+        >
+          <strong>Dashboard setup required.</strong>
+          Discord sign-in, server permissions, and saved settings
+          must be connected to the secure Watchtower backend before
+          management actions can be used.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LOGIN -->
+
+    <section>
+      <div class="container">
+
+        <div class="form-card">
+
+          <div class="text-center">
+
+            <div
+              class="card-icon"
+              style="margin-left:auto;margin-right:auto;"
+              aria-hidden="true"
+            >
+              W
+            </div>
+
+            <h2>Connect Your Discord Account</h2>
+
+            <p>
+              Sign in securely to view servers you manage and
+              configure Watchtower.
+            </p>
+
+          </div>
+
+          <button
+            class="btn btn-primary w-full"
+            type="button"
+            disabled
+            aria-describedby="login-help"
+          >
+            Discord Login — Coming Soon
+          </button>
+
+          <p
+            class="form-help text-center mt-2"
+            id="login-help"
+          >
+            Login will become available after Discord OAuth2,
+            callback handling, and server-side permission checks
+            are configured.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVER SELECTION -->
+
+    <section>
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Your Servers</h2>
+
+          <p>
+            Choose a server to manage its Watchtower configuration.
+            Only servers where you have the required permissions
+            should be available.
+          </p>
+        </div>
+
+        <div class="server-grid">
+
+          <article class="server-card">
+
+            <div class="card-icon" aria-hidden="true">
+              &#127968;
+            </div>
+
+            <h3>Discord Server</h3>
+
+            <p>
+              Your server name and icon will appear here after
+              successful Discord authentication.
+            </p>
+
+            <button
+              class="btn btn-secondary w-full"
+              type="button"
+              disabled
+            >
+              Server Unavailable
+            </button>
+
+          </article>
+
+          <article class="server-card">
+
+            <div class="card-icon" aria-hidden="true">
+              &#128737;
+            </div>
+
+            <h3>Server Permissions</h3>
+
+            <p>
+              Server access will be checked against your Discord
+              identity and the permissions required for each action.
+            </p>
+
+            <span class="badge">Authorization Required</span>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- MODERATION SETTINGS -->
+
+    <section>
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Moderation Settings</h2>
+
+          <p>
+            The following settings are planned for each individual
+            Discord server. They are previews and are not currently
+            connected to a saved configuration.
+          </p>
+        </div>
+
+        <div class="card-grid">
+
+          <article class="card">
+
+            <div class="card-icon" aria-hidden="true">
+              &#128737;
+            </div>
+
+            <h3>Anti-Raid Protection</h3>
+
+            <p>
+              Configure join-rate thresholds, suspicious join
+              detection, and automated raid responses.
+            </p>
+
+            <div class="mt-2">
+              <span class="badge">Not Connected</span>
+            </div>
+
+          </article>
+
+          <article class="card">
+
+            <div class="card-icon" aria-hidden="true">
+              &#128274;
+            </div>
+
+            <h3>Anti-Nuke Protection</h3>
+
+            <p>
+              Plan protection against destructive permission
+              changes, mass bans, and unauthorized channel deletion.
+            </p>
+
+            <div class="mt-2">
+              <span class="badge">Not Connected</span>
+            </div>
+
+          </article>
+
+          <article class="card">
+
+            <div class="card-icon" aria-hidden="true">
+              &#128221;
+            </div>
+
+            <h3>Moderation Logging</h3>
+
+            <p>
+              Configure logging for moderation actions and
+              security events in your community.
+            </p>
+
+            <div class="mt-2">
+              <span class="badge">Not Connected</span>
+            </div>
+
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONFIGURATION PREVIEW -->
+
+    <section>
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Configuration Preview</h2>
+
+          <p>
+            These controls are intentionally disabled until the
+            backend can authenticate the administrator, validate
+            server access, and safely persist configuration changes.
+          </p>
+        </div>
+
+        <div class="form-card">
+
+          <div class="form-group">
+            <label for="raid-threshold">
+              Anti-Raid Join Threshold
+            </label>
+
+            <input
+              id="raid-threshold"
+              type="number"
+              min="2"
+              max="100"
+              value="10"
+              disabled
+            >
+
+            <span class="form-help">
+              Example: the number of joins within a configured
+              time window that may trigger protection.
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="raid-window">
+              Detection Window (seconds)
+            </label>
+
+            <input
+              id="raid-window"
+              type="number"
+              min="1"
+              max="300"
+              value="10"
+              disabled
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="log-channel">
+              Moderation Log Channel ID
+            </label>
+
+            <input
+              id="log-channel"
+              type="text"
+              placeholder="Discord channel ID"
+              disabled
+            >
+          </div>
+
+          <div class="form-group">
+            <label for="lockdown-policy">
+              Emergency Lockdown Policy
+            </label>
+
+            <select id="lockdown-policy" disabled>
+              <option value="manual">Manual activation</option>
+              <option value="automatic">Automatic detection</option>
+              <option value="both">Manual and automatic</option>
+            </select>
+          </div>
+
+          <button
+            class="btn btn-primary w-full"
+            type="button"
+            disabled
+          >
+            Save Settings — Coming Soon
+          </button>
+
+          <p class="form-help text-center mt-2">
+            No settings have been changed or saved.
+          </p>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECURITY INFORMATION -->
+
+    <section>
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Built Around Server Security</h2>
+
+          <p>
+            Dashboard access must be verified independently for
+            every server and every protected management action.
+          </p>
+
+        </div>
+
+        <div class="card-grid">
+
+          <article class="card">
+            <h3>Identity Verification</h3>
+
+            <p>
+              Discord OAuth2 will establish the identity of the
+              person accessing the dashboard.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Permission Checks</h3>
+
+            <p>
+              The backend must confirm the user's permissions
+              before allowing server configuration changes.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Protected Settings</h3>
+
+            <p>
+              Configuration must be validated and saved by the
+              backend rather than trusted to browser input.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- HELP -->
+
+    <section class="cta-section">
+      <div class="container">
+
+        <div class="cta-panel">
+
+          <h2>Need Help Setting Up Watchtower?</h2>
+
+          <p>
+            Read the documentation to learn about Watchtower's
+            planned features and setup requirements.
+          </p>
+
+          <div class="hero-actions">
+
+            <a class="btn btn-primary" href="docs.html">
+              View Documentation
+            </a>
+
+            <a class="btn btn-secondary" href="status.html">
+              Check System Status
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-brand">WATCHTOWER</div>
+
+          <p class="footer-description">
+            Moderation, server protection, and security tools
+            for Discord communities of all sizes.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Navigation</h3>
+
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="status.html">System Status</a>
+            <a href="docs.html">Documentation</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Legal</h3>
+
+          <div class="footer-links">
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>
+          &copy; <span id="current-year"></span> Watchtower.
+          All rights reserved.
+        </span>
+
+        <span>Protect your community.</span>
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
