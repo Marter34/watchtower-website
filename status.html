@@ -1,0 +1,319 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080d16">
+  <meta name="description" content="View the reported status of the Watchtower moderation bot backend.">
+
+  <title>System Status | Watchtower</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+
+  <header class="site-header">
+    <div class="container navbar">
+
+      <a class="brand" href="index.html">
+        <span class="brand-icon" aria-hidden="true">W</span>
+        <span>WATCHTOWER</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+      >
+        Menu
+      </button>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="features.html">Features</a>
+        <a class="active" href="status.html">Status</a>
+        <a href="docs.html">Documentation</a>
+        <a href="dashboard.html">Dashboard</a>
+
+        <a
+          class="btn btn-primary"
+          href="https://discord.com/oauth2/authorize?client_id=1560069427880534126&permissions=1099780089014&integration_type=0&scope=bot+applications.commands"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Invite Bot
+        </a>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- PAGE HEADER -->
+
+  <main>
+
+    <section class="page-header">
+      <div class="container">
+
+        <span class="eyebrow">System Monitoring</span>
+
+        <h1>Watchtower <span class="text-cyan">Status</span></h1>
+
+        <p>
+          Check whether the Watchtower backend is responding.
+          Status information is refreshed automatically.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- LIVE BACKEND STATUS -->
+
+    <section>
+      <div class="container">
+
+        <div class="status-grid">
+
+          <article class="status-card">
+            <h3>Backend API</h3>
+
+            <div class="status-value">
+              <span
+                class="status-dot"
+                data-backend-status
+                aria-hidden="true"
+              ></span>
+
+              <span data-backend-status>Checking...</span>
+            </div>
+
+            <p class="status-description">
+              Reports whether the health endpoint is responding.
+            </p>
+          </article>
+
+          <article class="status-card">
+            <h3>Health Endpoint</h3>
+
+            <div class="status-value">/api/health</div>
+
+            <p class="status-description">
+              The endpoint used to check backend availability.
+            </p>
+
+            <a
+              href="https://watchtower-bot-8ndk.onrender.com/api/health"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Open endpoint
+            </a>
+          </article>
+
+          <article class="status-card">
+            <h3>Automatic Refresh</h3>
+
+            <div class="status-value">30 seconds</div>
+
+            <p class="status-description">
+              The page checks the backend periodically while open.
+            </p>
+          </article>
+
+        </div>
+
+        <div
+          class="status-message"
+          data-status-message
+          role="status"
+          aria-live="polite"
+        >
+          Checking the Watchtower backend...
+        </div>
+
+        <div class="text-center mt-3">
+          <button
+            class="btn btn-primary"
+            id="refresh-status"
+            type="button"
+          >
+            Refresh Status
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- STATUS EXPLANATION -->
+
+    <section>
+      <div class="container">
+
+        <div class="section-heading">
+          <h2>Understanding Status</h2>
+
+          <p>
+            These indicators describe what the website can verify.
+            They do not automatically confirm every bot feature is working.
+          </p>
+        </div>
+
+        <div class="card-grid">
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">✓</div>
+
+            <h3>Online</h3>
+
+            <p>
+              The backend health endpoint responded with a status
+              recognized as online by the website.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">!</div>
+
+            <h3>Unavailable</h3>
+
+            <p>
+              The request failed, the server returned an error,
+              or the response did not confirm availability.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon" aria-hidden="true">i</div>
+
+            <h3>Limited Information</h3>
+
+            <p>
+              Bot latency, Discord gateway connectivity, uptime,
+              and server count require additional backend reporting.
+            </p>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICE INFORMATION -->
+
+    <section class="cta-section">
+      <div class="container">
+
+        <div class="cta-panel">
+          <h2>Need Help?</h2>
+
+          <p>
+            If Watchtower is unavailable, try again later or visit
+            the support community for assistance.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="btn btn-primary"
+              href="https://discord.com/oauth2/authorize?client_id=1560069427880534126&permissions=1099780089014&integration_type=0&scope=bot+applications.commands"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Invite Watchtower
+            </a>
+
+            <a class="btn btn-secondary" href="docs.html">
+              Read Documentation
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+
+  <footer class="site-footer">
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+          <div class="footer-brand">WATCHTOWER</div>
+
+          <p class="footer-description">
+            Moderation and security tools for Discord communities
+            of all sizes.
+          </p>
+        </div>
+
+        <div class="footer-column">
+          <h3>Navigation</h3>
+
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="features.html">Features</a>
+            <a href="status.html">System Status</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="docs.html">Documentation</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Legal</h3>
+
+          <div class="footer-links">
+            <a href="terms.html">Terms of Service</a>
+            <a href="privacy.html">Privacy Policy</a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <span>
+          &copy; <span id="current-year"></span> Watchtower.
+          All rights reserved.
+        </span>
+
+        <span>System status is based on available backend information.</span>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- MANUAL REFRESH -->
+
+  <script>
+    document
+      .getElementById("refresh-status")
+      .addEventListener("click", async function () {
+        const button = this;
+
+        if (typeof checkBackendHealth !== "function") {
+          return;
+        }
+
+        button.disabled = true;
+        button.textContent = "Refreshing...";
+
+        try {
+          await checkBackendHealth();
+        } finally {
+          button.disabled = false;
+          button.textContent = "Refresh Status";
+        }
+      });
+  </script>
+
+</body>
+</html>
